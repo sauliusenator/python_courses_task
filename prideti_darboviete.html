@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Redaguoti darbovietę</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Redaguoti darbovietę</h1>
+    <a href="{{ url_for('darbovietes') }}" class="a-prideti">Pagrindinis puslapis</a>
+    <form method="POST">
+        <label for="pavadinimas">Pavadinimas:</label>
+        <input type="text" name="pavadinimas" id="pavadinimas" value="{{ darboviete.pavadinimas }}" required><br>
+        <label for="miestas">Miestas:</label>
+        <input type="text" name="miestas" id="miestas" value="{{ darboviete.miestas }}" required><br>
+        <label for="darbuotoju_skaicius">Darbuotojų skaičius:</label>
+        <input type="number" name="darbuotoju_skaicius" id="darbuotoju_skaicius" value="{{ darboviete.darbuotoju_skaicius }}" required><br>
+        <input type="submit" value="Išsaugoti">
+    </form>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pridėti darbuotoją</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Pridėti darbuotoją</h1>
+    <a href="{{ url_for('darbovietes') }}" class="a-prideti">Pagrindinis puslapis</a>
+    <form method="POST">
+        <label for="vardas">Vardas:</label>
+        <input type="text" name="vardas" id="vardas" required><br>
+        <label for="pavarde">Pavardė:</label>
+        <input type="text" name="pavarde" id="pavarde" required><br>
+        <label for="pareigos">Pareigos:</label>
+        <input type="text" name="pareigos" id="pareigos" required><br>
+        <label for="darboviete_id">Darbovietė:</label>
+        <select name="darboviete_id" id="darboviete_id" required>
+            {% for darboviete in darbovietes %}
+                <option value="{{ darboviete.id }}">{{ darboviete.pavadinimas }}</option>
+            {% endfor %}
+        </select><br>
+        <input type="submit" value="Pridėti">
+    </form>
+</body>
+</html>
